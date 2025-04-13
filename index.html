@@ -3,15 +3,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>only4dani.dev</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>only4dani.dev — Chat</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>only4dani.dev</h1>
-    <p id="daily-message">April 13th, 2025 — I found out you were scared of deer today and i thought it was cute, just sayin 💫</p>
-    <p class="footer">— your secret admirer 🌐🖤</p>
+  <div class="chat-container">
+    <h1>only4dani 💬</h1>
+    <div id="chat-box"></div>
+    <input type="text" id="name" placeholder="Your name" />
+    <textarea id="message" placeholder="Write something sweet..."></textarea>
+    <button onclick="sendMessage()">Send</button>
   </div>
+
+  <script>
+    const firebaseUrl = "https://only4dani-default-rtdb.firebaseio.com/messages.json";
+
+    function sendMessage() {
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !message) return;
+
+      fetch(firebaseUrl, {
+        method: "POST",
+        body: JSON.stringify({ name, message, timestamp: Date.now() }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(() => {
+        document.getElementById("message").value = "";
+      });
+    }
+
+    function loadMessages() {
+      fetch(firebaseUrl)
+        .then(res => res.json())
+        .then(data => {
+          const chatBox = document.getElementById("chat-box");
+          chatBox.innerHTML = "";
+          if (!data) return;
+          Object.values(data).sort((a,b)=>a.timestamp-b.timestamp).forEach(entry => {
+            const msg = document.createElement("div");
+            msg.className = "msg";
+            msg.innerHTML = `<strong>{entry.name}:</strong> {entry.message}`;
+            chatBox.appendChild(msg);
+          });
+          chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    }
+
+    setInterval(loadMessages, 2000);
+    window.onload = loadMessages;
+  </script>
 </body>
 </html>
