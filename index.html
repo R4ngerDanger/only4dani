@@ -45,7 +45,7 @@
           Object.values(data).sort((a,b)=>a.timestamp-b.timestamp).forEach(entry => {
             const msg = document.createElement("div");
             msg.className = "msg";
-            msg.innerHTML = `<strong>{entry.name}:</strong> {entry.message}`;
+            msg.innerHTML = `<strong>${entry.name}:</strong> ${entry.message}`;
             chatBox.appendChild(msg);
           });
           chatBox.scrollTop = chatBox.scrollHeight;
