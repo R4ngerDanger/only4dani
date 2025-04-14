@@ -8,15 +8,22 @@
 </head>
 <body>
   <canvas id="starfield"></canvas>
-  <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
   <div class="container center">
     <h1>just 4 u &lt;3</h1>
+    <button id="playButton">🔊 Play Music</button>
+    <audio id="bg-music" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
     <a class="btn" href="chat.html">💬 Chatbox</a>
     <a class="btn" href="journal.html">📸 Journal</a>
   </div>
   <script src="stars.js"></script>
+  <script>
+    document.getElementById("playButton").addEventListener("click", function() {
+      const audio = document.getElementById("bg-music");
+      audio.volume = 0.5;
+      audio.play();
+    });
+  </script>
 </body>
 </html>
