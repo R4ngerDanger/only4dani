@@ -1,1 +1,58 @@
-<!-- chatbox with starry bg -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+  <div class="container">
+    <h1>💬 Chatbox</h1>
+    <div id="chat-box" class="chat-box"></div>
+    <input type="text" id="name" placeholder="Your name" />
+    <textarea id="message" placeholder="Type your message..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+    <a class="btn" href="index.html">← Back</a>
+  </div>
+  <script src="stars.js"></script>
+  <script>
+    const firebaseUrl = "https://only4dani-default-rtdb.firebaseio.com/messages.json";
+
+    function sendMessage() {
+      const name = document.getElementById("name").value.trim();
+      const message = document.getElementById("message").value.trim();
+      if (!name || !message) return;
+
+      fetch(firebaseUrl, {
+        method: "POST",
+        body: JSON.stringify({ name, message, timestamp: Date.now() }),
+        headers: { "Content-Type": "application/json" }
+      }).then(() => {
+        document.getElementById("message").value = "";
+      });
+    }
+
+    function loadMessages() {
+      fetch(firebaseUrl)
+        .then(res => res.json())
+        .then(data => {
+          const chatBox = document.getElementById("chat-box");
+          chatBox.innerHTML = "";
+          if (!data) return;
+          Object.values(data).sort((a,b)=>a.timestamp-b.timestamp).forEach(entry => {
+            const msg = document.createElement("div");
+            msg.className = "msg";
+            msg.innerHTML = `<strong>${entry.name}:</strong> ${entry.message}`;
+            chatBox.appendChild(msg);
+          });
+          chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    }
+
+    setInterval(loadMessages, 2000);
+    window.onload = loadMessages;
+  </script>
+</body>
+</html>
