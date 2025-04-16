@@ -43,7 +43,7 @@ button, input, textarea {
   max-width: 600px;
   border: none;
   border-radius: 10px;
-  background: #a259ff;
+  background: rgba(162, 89, 255, 0.8); /* slight transparency */
   color: white;
   cursor: pointer;
 }
@@ -53,12 +53,12 @@ textarea {
 }
 
 .chat-box {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   height: 55vh;
   overflow-y: auto;
   padding: 10px;
-  margin: 10px auto;
+  margin-bottom: 10px;
   width: 90vw;
   max-width: 600px;
 }
@@ -66,12 +66,13 @@ textarea {
 .entry img {
   max-width: 100%;
   border-radius: 8px;
+  opacity: 1.0;
 }
 
 .entry {
   margin-top: 20px;
   padding: 10px;
-  background: #3a2a58;
+  background: rgba(58, 42, 88, 0.85);
   border-radius: 10px;
   max-width: 90vw;
   margin-left: auto;
