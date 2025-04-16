@@ -5,37 +5,67 @@ body, html {
   height: 100%;
   font-family: 'Courier New', Courier, monospace;
   color: white;
+  overflow-x: hidden;
 }
 
 .background {
+  background: url('background.gif') no-repeat center center fixed;
+  background-size: cover;
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url('background.gif') no-repeat center center fixed;
-  background-size: cover;
   z-index: -1;
   opacity: 0.9;
 }
 
 .container {
+  padding: 20px;
   text-align: center;
-  padding: 40px 20px;
-  position: relative;
   z-index: 1;
+  position: relative;
 }
 
 h1 {
-  font-size: 2.5em;
   color: #d9b3ff;
+  font-size: 2.5em;
 }
 
-nav button {
-  font-size: 1.2em;
-  padding: 14px 24px;
-  margin: 10px;
+button, input, textarea {
+  font-size: 1.1em;
+  padding: 12px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 10px;
   background: #a259ff;
   color: white;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
+}
+
+.chat-box {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.entry img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.entry {
+  margin-top: 20px;
+  padding: 10px;
+  background: #3a2a58;
+  border-radius: 10px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
