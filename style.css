@@ -1,4 +1,8 @@
 
+* {
+  box-sizing: border-box;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -23,6 +27,7 @@ body, html {
   text-align: center;
   z-index: 1;
   position: relative;
+  max-width: 100%;
 }
 
 h1 {
@@ -34,9 +39,8 @@ button, input, textarea {
   font-size: 1.1em;
   padding: 12px;
   margin-top: 10px;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
+  width: 90vw;
+  max-width: 600px;
   border: none;
   border-radius: 10px;
   background: #a259ff;
@@ -44,15 +48,19 @@ button, input, textarea {
   cursor: pointer;
 }
 
+textarea {
+  min-height: 80px;
+}
+
 .chat-box {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-  height: 50vh;
+  height: 55vh;
   overflow-y: auto;
   padding: 10px;
-  margin-bottom: 10px;
-  max-width: 100%;
-  box-sizing: border-box;
+  margin: 10px auto;
+  width: 90vw;
+  max-width: 600px;
 }
 
 .entry img {
@@ -65,7 +73,7 @@ button, input, textarea {
   padding: 10px;
   background: #3a2a58;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 90vw;
   margin-left: auto;
   margin-right: auto;
 }
