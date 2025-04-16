@@ -1,121 +1,41 @@
 
-body {
+body, html {
   margin: 0;
   padding: 0;
-  background-color: #1e102f;
-  color: #f9f9f9;
+  height: 100%;
   font-family: 'Courier New', Courier, monospace;
+  color: white;
 }
 
-canvas#starfield {
+.background {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
   width: 100%;
   height: 100%;
-  display: block;
+  background: url('background.gif') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  opacity: 0.9;
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
   text-align: center;
+  padding: 40px 20px;
   position: relative;
   z-index: 1;
 }
 
 h1 {
-  color: #d9b3ff;
   font-size: 2.5em;
+  color: #d9b3ff;
 }
 
-.btn, #playButton {
-  display: block;
+nav button {
+  font-size: 1.2em;
+  padding: 14px 24px;
+  margin: 10px;
   background: #a259ff;
   color: white;
-  padding: 12px;
-  margin: 12px 0;
-  text-decoration: none;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-
-input, textarea {
-  width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  background: #3a2a58;
-  border: none;
-  color: #fff;
-  border-radius: 8px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background: #b27eff;
-  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-}
-
-.chat-box {
-  background: #000;
-  height: 300px;
-  overflow-y: auto;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #a259ff;
-}
-
-.msg {
-  margin-bottom: 8px;
-}
-
-.entry img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.entry {
-  margin-top: 20px;
-  padding: 10px;
-  background: #3a2a58;
-  border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 1.8em;
-  }
-
-  .btn, #playButton {
-    font-size: 1em;
-    padding: 16px;
-  }
-
-  .container {
-    padding: 12px;
-  }
-
-  textarea, input, button {
-    font-size: 1em;
-  }
-
-  .chat-box {
-    height: 250px;
-  }
-
-  .entry {
-    font-size: 0.95em;
-  }
 }
