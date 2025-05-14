@@ -23,22 +23,11 @@
       <button onclick="showPage('journal')">📸 Journal</button>
     </nav>
     <div id="page-content" class="page-content"></div>
-
-    <div id="countdown-section" style="margin-top: 40px;">
-      <h2>Our first moment together is loading...</h2>
-      <div id="countdown" style="font-size: 1.5em; font-weight: bold;"></div>
-    </div>
   </div>
 
   <script>
     const audio = document.getElementById("bg-music");
     let isPlaying = false;
-
-    audio.loop = true;
-    audio.addEventListener("ended", () => {
-      audio.currentTime = 0;
-      audio.play();
-    });
 
     document.getElementById("playMusic").addEventListener("click", () => {
       if (isPlaying) {
@@ -150,22 +139,6 @@
         });
       });
     }
-
-    const targetDate = new Date("July 18, 2024 23:30:00").getTime();
-    const countdownEl = document.getElementById("countdown");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-      if (distance <= 0) {
-        countdownEl.innerHTML = "It's happening! 💖";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
 
     showPage('home');
   </script>

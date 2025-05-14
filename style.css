@@ -1,55 +1,80 @@
 
-body {
-  background: #111;
-  color: #eee;
-  font-family: 'Courier New', Courier, monospace;
-  margin: 0;
-  padding: 20px;
+* {
+  box-sizing: border-box;
 }
 
-.chat-container {
-  max-width: 600px;
-  margin: auto;
-  background: #1e1e1e;
-  border: 2px solid #333;
-  border-radius: 16px;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  overflow-x: hidden;
+}
+
+.background {
+  background: url('background.gif') no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+.container {
   padding: 20px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  max-width: 100%;
 }
 
 h1 {
-  text-align: center;
-  color: #ff66c4;
+  color: #d9b3ff;
+  font-size: 2.5em;
 }
 
-#chat-box {
-  background: #000;
-  height: 300px;
-  overflow-y: auto;
-  border: 1px solid #444;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.msg {
-  margin-bottom: 8px;
-}
-
-input, textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  background: #222;
-  border: 1px solid #444;
-  color: #eee;
-  border-radius: 8px;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background: #ff66c4;
-  color: #fff;
+button, input, textarea {
+  font-size: 1.1em;
+  padding: 12px;
+  margin-top: 10px;
+  width: 90vw;
+  max-width: 600px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  background: rgba(162, 89, 255, 0.8);
+  color: white;
   cursor: pointer;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+.chat-box {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  height: 55vh;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 90vw;
+  max-width: 600px;
+}
+
+.entry img {
+  max-width: 100%;
+  border-radius: 8px;
+  opacity: 1.0;
+}
+
+.entry {
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(58, 42, 88, 0.85);
+  border-radius: 10px;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
